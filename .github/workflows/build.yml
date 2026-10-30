@@ -1,1 +1,26 @@
 
+name: Build mod
+on:
+  push:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: 8.10.2
+      - name: Build
+        env:
+          MODDATA: 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
+        run: echo "$MODDATA" | base64 -d | tar xz && gradle build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: proximity-alert-jar
+          path: build/libs/proximity-alert-1.0.0.jar
+          
