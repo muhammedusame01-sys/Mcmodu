@@ -1,4 +1,4 @@
-ame: Build mod
+name: Build mod
 on:
   push:
   workflow_dispatch:
